@@ -18,6 +18,12 @@ public class RequestHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        printStartLine(request);
+        printHeaders(request);
+        printHeaderUtils(request);
+        printEtc(request);
+
+        response.getWriter().write("ok");
     }
 
     //start line 정보
@@ -86,7 +92,7 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println();
     }
 
-    //기타 정보
+    //기타 정보(기타 정보는 HTTP 메시지의 정보는 아니다.)
     private void printEtc(HttpServletRequest request) {
         System.out.println("--- 기타 조회 start ---");
 
