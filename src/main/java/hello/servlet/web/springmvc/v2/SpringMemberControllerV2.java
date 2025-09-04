@@ -17,7 +17,12 @@ import java.util.List;
  * @RequestMapping 클래스 레벨과 메서드 레벨 조합
  */
 @Controller
-@RequestMapping("/springmvc/v2/members")
+@RequestMapping("/springmvc/v2/members") //공통적인 부분인 /springmvc/v2/members 를 통합해서 사용하여 중복 제거
+//클래스 레벨에 다음과 같이 @RequestMapping 을 두면 메서드 레벨과 조합이 된다. -> 클래스 레벨 + 메서드 레벨
+//클래스 레벨 @RequestMapping("/springmvc/v2/members")
+// - 메서드 레벨 @RequestMapping("/new-form") -> /springmvc/v2/members/new-form
+// - 메서드 레벨 @RequestMapping("/save") -> /springmvc/v2/members/save
+// - 메서드 레벨 @RequestMapping -> /springmvc/v2/members
 public class SpringMemberControllerV2 {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
